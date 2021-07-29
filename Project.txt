@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color:slateblue;">
+
+<h1 style="font-size:300%;text-align:center;background-color:gray;color:orange;">Student Welfare Bank</h1>
+<p style="font-size:150%;color:orange;background-color:gray;">This website is made by the authority and any copy of the codes or content can lead to severe punishment.<br>
+Welcome to website of Student Welfare Bank. This webpage will help you in getting more information about schemes available for you and will tell you about the benefits of opening an account in our bank. If you are new you can just have a round and check the content. You can contact us by our helpline number which is given at the last of this webpage.</p>
+
+<hr>
+<hr>
+<p style="font-size:150%;background-color:white;text-align:center;"><b>Login Area : Enter your account number and password to open your account.</b><br><br>
+Account Number : <input type="text" style="font-size: 20px;" id="40796502818" value=""><br>
+User Password  : <input type="password" style="font-size: 20px;" id="SHARMA"><br><br>
+<button style="font-size: 24px;color:gray;background-color:orange;" onclick="accCheck()"><b>Open Account Transactions</b></button></p>
+ 
+<hr>
+<hr>
+<p style="font-size:150%;"><b>Check the available account opening details for you here :</b></p>
+<p style="font-size:150%;">Enter your age here : </p>
+<input id="age" style="font-size: 24px;" value="">
+<button style="font-size: 24px;color:gray;background-color:orange;" onclick="ageCheck()"><b>Check Scheme</b></button>
+<p id="demo"></p>
+
+<hr>
+<hr>
+<p style="font-size:150%;background-color:gray;text-align:center;">To apply for an account, you can sign up with our site for free and that will make it very easy for you to open an account.<br><br>
+First Name :<input type="text" style="font-size: 20px;" id="Text1" value=""><br><br>
+Last Name  :<input type="text" style="font-size: 20px;" id="Text2" value=""><br><br>
+Select Your Gender :<br>
+<input type="radio" style="font-size: 24px;" name="gender" value="Male" id="radio1"> Male<br>
+<input type="radio" style="font-size: 24px;" name="gender" value="Female" id="radio2"> Female<br><br>
+Select your Account type :<br>
+<input type="radio" style="font-size: 24px;" name="acc" value="saving" id="radio3"> Saving<br>
+<input type="radio" style="font-size: 24px;" name="acc" value="current" id="radio4"> Current<br><br>
+Enter Your Contact Number : <input type="text" style="font-size: 20px;" id="Text3" value=""><br><br>
+<button style="font-size: 24px;color:gray;background-color:orange;" onclick="account()"><b>Enter Data</b></button></p>
+
+<hr>
+<hr>
+<p style="font-size:150%;background-color:lime;font-size:200%"><b>ADVERTISMENT</b><br><br>
+For creating any HTML project . Here is a small program for instance. Contact us : Team HTML<br><br>
+<button style="font-size: 24px;" onclick="cont()">Contact us!</button>
+<button style="font-size: 24px;" onclick="ad()">Check Today's Day</button></p>
+
+<hr>
+<hr>
+<p style="font-size:150%;background-color:gray;">We are still upgrading our services and there is yet more to go. To get in touch with us for latest updates, get yourself registered with us.<br>
+<button style="font-size: 24px;color:gray;background-color:orange;" onclick="mail()"><b>Click here to get enrolled</b></button></p>
+
+<hr>
+<hr>
+<p style="font-size:150%;"><b>We, the team behind the making of this webpage, are happy to serve you and welcome any feedback you will like to offer, in order to make our site even more interactive and user-friendly. For any feedback or suggestion, feel free to contact us or mail us. The contact number is given at bottom of this webpage.</b></p>  
+
+<hr>
+<hr>
+<br><p style="text-align:center;color:#e60000;"><b>If  you have any complain or question regading our webpage content or schemes, you can call our 24X7 helpline number.<br>
+Helpline number : +70001-12345<br>
+Or you can send us a mail at : studentwelfarebanksupport@gmail.com</b></p>
+
+<script>
+
+function accCheck() {
+var acc,pass;
+acc=document.getElementById("user").value;
+pass=document.getElementById("pass").value;
+
+if(acc=="40796502818"&&pass=="SHARMA")
+{ window.open("account.html");}
+else
+{ window.alert("The username and password you have entered are incorrect. ");}
+}
+
+function account() {
+var fname,lname,phone;
+fname=document.getElementById("Text1").value;
+lname=document.getElementById("Text2").value;
+phone=document.getElementById("Text3").value;
+var txt;
+if(confirm(fname + " " + lname + ", are you sure you want to continue? Please confirm that your contact number is : " + phone)){
+txt= "Your data have been processed you are eligible to open an account now";}
+else{
+txt="You cancelled the last form filling.";}
+window.alert(txt);
+document.getElementById("Text1").value="";
+document.getElementById("Text2").value="";
+document.getElementById("Text3").value="";
+}
+
+
+function mail() {
+var email = prompt("Enter your mail id here : ", "enter mail id ");
+var name = prompt("Enter your name here : ", "your name ");
+window.alert(name + ", your e-mail id : " + email + " has been enrolled to our system. We will get you notified in case of any update.");
+}
+
+function cont() {
+window.alert("You are not connected to internet. Try again later.");
+}
+
+function ad() {
+var day;
+switch (new Date().getDay()){
+   case 0:
+      day="Sunday";
+      break;
+   case 1:
+      day="Monday";
+      break;
+   case 2:
+      day="Tuesday";
+      break;
+   case 3:
+      day="Wednesday";
+      break;
+   case 4:
+      day="Thursday";
+      break;
+   case 5:
+      day="Friday";
+      break;
+   case 6:
+      day="Saturday";
+}
+window.alert("Today is : " + day);
+}
+ 
+function ageCheck() {
+var age, acc;
+   age= Number(document.getElementById("age").value);
+   if (isNaN(age)) {
+      acc = "Input is not a number.";
+   } else {
+      acc = (age < 18) ? "You can open up a new account, that too without paying anything." : "There are schemes available. Check the other blog of this webpage or contact us for more info. ";
+   } 
+   document.getElementById("demo").innerHTML = acc;
+}
+</script>
+
+</html>

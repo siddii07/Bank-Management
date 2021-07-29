@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+table,td{
+ border:1px solid black;
+ font-size:24px;
+ background-color:white;
+}
+</style>
+
+<body style="background-color:slateblue;">
+
+<h1 style="font-size:300%;text-align:center;background-color:gray;color:orange;">Student Welfare Bank</h1>
+<p style="font-size:150%;text-align:center;color:gray;background-color:orange;">Account holder : Mr. Siddhant Sharma<br>
+Address :  AD 109 C Pitampura <br>
+Contact No. : 9873236474 <br>
+D.O.B : 9th December 1998 <br>
+</p>
+
+<table id="myTable">
+  <col width="330">
+  <col width="330">
+  <col width="330">
+  <col width="330">
+  <tr>
+    <td>Account Number Of Receiver</td>
+    <td>Amount Transferred</td>
+    <td>Earlier balance</td>
+    <td>Remaining balance</td>
+  </tr>
+  <tr>
+    <td>7902538129</td>
+    <td>40000</td>
+    <td>230000</td>
+    <td>190000</td>
+  </tr>
+  <tr>
+    <td>8254941893</td>
+    <td>60000</td>
+    <td>190000</td>
+    <td>130000</td>
+  </tr>
+</table> 
+
+<hr>
+<hr>
+<p style="font-size:150%;background-color:gray;text-align:center;">In order to transfer money to other account, please enter these details :<br><br>
+Account Number Of Receiver : <input style="font-size:20px;" type="text" id="accno" value=""><br><br>
+Amount Of Money To Be Transferred : <input style="font-size:20px;" type="text" id="money" value=""><br><br>
+<button style="font-size:24px;color:orange;background-color:gray;" onclick="transfer()"><b>Click Here For Transaction</b></button></p>
+
+<script>
+var bal=130000; 
+
+function transfer() {
+var trans,receiv,remain;
+trans=document.getElementById("money").value;
+receiv=document.getElementById("accno").value;
+remain=bal-trans;
+
+var table=document.getElementById("myTable");
+var row = table.insertRow(-1);
+
+var cell1,cell2,cell3,cell4;
+cell1 = row.insertCell(0);
+cell2 = row.insertCell(1);
+cell3 = row.insertCell(2);
+cell4 = row.insertCell(3);
+
+cell1.innerHTML = receiv;
+cell2.innerHTML = trans;
+cell3.innerHTML = bal;
+cell4.innerHTML = remain;
+
+if(remain<0)
+{
+window.alert("Your current account balance cannot transfer this amount. You need to add more amount to your account before this transfer. Your current balance is : " + bal);
+document.getElementById("myTable").deleteRow(-1);
+}
+else
+{
+bal=remain;
+}
+
+}
+
+</script>
+</body>
+</html>
